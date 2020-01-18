@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MVVMClean</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="home_fragment">Vehicle List</string>
+    <string name="map_fragment">Map</string>
+
+    <string name="reload_map">No Network!!  \nClick to Reload</string>
+    <string name="offline_map">You are offline!!\n Showing cached</string>
+
+    <string name="retry">Retry</string>
+</resources>

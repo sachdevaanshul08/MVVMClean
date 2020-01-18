@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+>
+
+    <data>
+        <variable name="vehicle"
+                  type="com.clean.data.model.vehicles.Vehicle"/>
+    </data>
+
+
+    <!-- Put the name of the location and the map inside a CardView -->
+    <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+    >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/lite_listrow_text"
+                    android:layout_width="match_parent"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+            />
+
+            <com.google.android.gms.maps.MapView
+                    android:id="@+id/lite_listrow_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    map:liteMode="true"
+                    map:mapType="none"
+            />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

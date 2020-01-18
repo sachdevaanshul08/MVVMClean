@@ -1,0 +1,88 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "DATABASE_NAME", DATABASE_NAME
+            buildConfigField "int", "DATABASE_VERSION", DATABASE_VERSION
+        }
+        release {
+            buildConfigField "String", "DATABASE_NAME", DATABASE_NAME
+            buildConfigField "int", "DATABASE_VERSION", DATABASE_VERSION
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    sourceSets {
+        test {
+            //resources.srcDirs += ['sampledata']
+        }
+        androidTest {
+            //resources.srcDirs += ['sampledata']
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test:runner:1.2.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+
+
+    //Retrofit
+    api 'com.squareup.retrofit2:retrofit:2.6.2'
+    api 'com.squareup.retrofit2:converter-gson:2.6.2'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    //Room
+    api 'androidx.room:room-runtime:2.2.1'
+    kapt 'androidx.room:room-compiler:2.2.1' // For Kotlin use kapt instead of annotationProcessor
+// optional - Kotlin Extensions and Coroutines support for Room
+    api 'androidx.room:room-ktx:2.2.1'
+
+    // Lifecycle components
+    api "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
+
+    //Live data kotlin support
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc02'
+
+    //Dagger
+    api 'com.google.dagger:dagger:2.22'
+    kapt 'com.google.dagger:dagger-compiler:2.22'
+
+    api 'com.google.dagger:dagger-android:2.22'
+    api 'com.google.dagger:dagger-android-support:2.22'
+    kapt 'com.google.dagger:dagger-android-processor:2.22'
+
+
+}
+repositories {
+    mavenCentral()
+}

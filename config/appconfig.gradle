@@ -1,0 +1,7 @@
+android {
+    defaultConfig {
+        buildConfigField "long", "READ_TIMEOUT", "30"
+        buildConfigField "long", "CONNECTION_TIMEOUT", "30"
+        resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
+    }
+}
